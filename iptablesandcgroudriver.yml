@@ -1,0 +1,45 @@
+---
+  - name: setting iptables and the c group driver
+    hosts: "master, worker"
+    become: yes
+    become_user: root
+    tasks:
+     - name: set Iptables and the Cgroup driver in kubelet       config
+       shell: 'cat <<EOF | sudo tee   /etc/modules-load.d/k8s.conf
+         br_netfilter
+         EOF'
+     - name: set iptable values
+       shell: 'cat <<EOF | sudo tee /etc/sysctl.d/k8s.conf
+         net.bridge.bridge-nf-call-iptables  = 1
+         net.bridge.bridge-nf-call-ip6tables = 1
+         EOF'
+
+     - name: cgroup driver in kubeconfig file
+       shell: |
+         sudo sysctl -system
+         sed -i  "s/cgroupDriver:  systemd/cgroupDriver:  cgroupfs/g" /var/lib/kubelet/config.yaml
+         systemctl daemon-reload
+         systemctl restart kubelet
+         systemctl enable kubelet
+         systemctl start kubelet
+
+
+     - name: create Docker config directory
+       file: path=/etc/docker state=directory
+
+     - name: changing Docker to systemd driver
+       copy:
+         dest: "/etc/docker/daemon.json"
+         content: |
+           {
+             "exec-opts": ["native.cgroupdriver=systemd"]
+           }
+     - name: restart docker
+       shell: |
+
+               systemctl daemon-reload
+               systemctl restart docker
+
+
+
+
