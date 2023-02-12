@@ -1,5 +1,5 @@
 [master]
-172.31.7.61
+172.31.7.61  ansible_ssh_pass=kubernetes ansible_ssh_user=root
 
 [worker]
 172.31.3.52
