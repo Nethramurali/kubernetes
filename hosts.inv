@@ -1,5 +1,5 @@
 [master]
-3.110.50.130
+172.31.14.116  ansible_ssh_private_key_file=/root/.ssh/id_rsa   
 
 [worker]
 172.31.3.52
