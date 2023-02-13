@@ -2,7 +2,7 @@
   name: Started Docker Installation
   hosts: "worker, master"
   become: yes
-  become_user: root
+  become_method: sudo
   vars_prompt:
     - name: nightly
       prompt: "Do you want enable docker nightly repo(optional) [yes/no]"
