@@ -1,9 +1,4 @@
-- name: Started Installation Kubernetes
-  hosts: localhost
-  become: yes
-  become_user: root
 
-  tasks:
     - name: Include Preparing Yml File To Prepare Machines
       include: tasks/prerequistes.yml
 
