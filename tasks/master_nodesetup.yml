@@ -8,7 +8,16 @@
     - name: initialize the cluster
       command: kubeadm init --pod-network-cidr=192.168.0.0/16
       ignore_errors: True
+    
+    - name: remove the container
+      file:
+        path: /etc/containerd/config.toml
+        state: absent
 
+    - name: restart containerd
+      systemd:
+        name: containerd
+        state: restarted
 
     - name: kubeadm reset
       shell: |
@@ -17,11 +26,6 @@
     - name: restart kubelet
       systemd:
         name: kubelet
-        state: restarted
-
-    - name: restart containerd
-      systemd:
-        name: containerd
         state: restarted
 
     - name: echo 1
