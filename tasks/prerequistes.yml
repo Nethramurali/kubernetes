@@ -1,6 +1,5 @@
 ---
-- name: prerequisties for the machine
-  hosts: "master, worker"
+- hosts: "master,worker"
   become: yes
   become_user: root
 
