@@ -3,7 +3,7 @@
       import_playbook: tasks/prerequistes.yml
 
     - name: Include Preparing Yml File To Prepare Machines
-      import_playbook: tasks/iptablesandcgroupdriver.yml
+      import_playbook: tasks/iptablesandcgroudriver.yml
 
     - name: Include Master Yml File To Set Master Machine
       import_playbook: tasks/master_nodesetup.yml
