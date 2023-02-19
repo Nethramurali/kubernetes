@@ -1,12 +1,12 @@
 
     - name: Include Preparing Yml File To Prepare Machines
-      include: tasks/prerequistes.yml
+      import_playbook: tasks/prerequistes.yml
 
     - name: Include Preparing Yml File To Prepare Machines
-      include: tasks/iptablesandcgroupdriver.yml
+      import_playbook: tasks/iptablesandcgroupdriver.yml
 
     - name: Include Master Yml File To Set Master Machine
-      include: tasks/master_nodesetup.yml
+      import_playbook: tasks/master_nodesetup.yml
 
     - name: Include Initiate Yml File To Join Worker Node
-      include: tasks/worker_node_joining.yml
+      import_playbook: tasks/worker_node_joining.yml
