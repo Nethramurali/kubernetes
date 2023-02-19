@@ -6,7 +6,7 @@
   
   
    - name: Include Preparing Yml File To Prepare Machines
-     import_playbook: ./tasks/prerequistes
+     import_playbook: ./tasks/prerequistes.yml
    - name: Include Preparing Yml File To Prepare Machines
      import_playbook: ./tasks/iptablesandcgroupdriver.yml
    - name: Include Master Yml File To Set Master Machine
