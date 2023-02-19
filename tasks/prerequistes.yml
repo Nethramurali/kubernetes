@@ -1,23 +1,23 @@
 ---
- - name: prerequisties for the machine
-   hosts: "master, worker"
-   become: yes
-   become_user: root
+- name: prerequisties for the machine
+  hosts: "master, worker"
+  become: yes
+  become_user: root
 
-   tasks:
-     - name: disable Swap
-       shell: |
-        swapoff -a
-        sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
+  tasks:
+    - name: disable Swap
+      shell: |
+       swapoff -a
+       sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab
 
-     - name: set Selinux to permissive
-       shell: |
-        setenforce 0
-        sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+    - name: set Selinux to permissive
+      shell: |
+       setenforce 0
+       sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
 
-        # - name: Stop firewalld
-       #shell: |
-       # systemctl stop firewalld
-       # systemctl disable firewalld
+       # - name: Stop firewalld
+      #shell: |
+      # systemctl stop firewalld
+      # systemctl disable firewalld
 
-     
+    
