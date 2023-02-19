@@ -1,13 +1,11 @@
 ---
-  - name: kubernetes installation
-    hosts: "master, worker"
-    become: yes
-    become_user: root
-    tasks:
-
+ - name: create kubernetes cluster master node setup
+   hosts: master,worker
+   become: yes
+   tasks:
      - name: Copying Kubernetes Repo file
        copy:
-         src: /home/ansadmin/kubernetes/kubernetes.repo
+         src: ./kubernetes.repo
          dest: /etc/yum.repos.d/kubernetes.repo
          mode: '0644'
 

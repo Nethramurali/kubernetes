@@ -1,0 +1,15 @@
+- name: Started Installation Kubernetes
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+  
+  
+   - name: Include Preparing Yml File To Prepare Machines
+     import_playbook: ./tasks/prerequistes
+   - name: Include Preparing Yml File To Prepare Machines
+     import_playbook: ./tasks/iptablesandcgroupdriver.yml
+   - name: Include Master Yml File To Set Master Machine
+     import_playbook: ./tasks/master_nodesetup.yml
+   - name: Include Initiate Yml File To Join Worker Node
+     import_playbook: ./tasks/worker_node_joining.yml

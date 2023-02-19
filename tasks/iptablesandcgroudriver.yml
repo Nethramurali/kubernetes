@@ -1,10 +1,10 @@
 ---
-  - name: setting iptables and the c group driver
-    hosts: "master, worker"
+  - name: create kubernetes cluster master node setup
+    hosts: master,worker
     become: yes
-    become_user: root
     tasks:
-     - name: set Iptables and the Cgroup driver in kubelet       config
+
+     - name: set Iptables and the Cgroup driver in kubelet config
        shell: 'cat <<EOF | sudo tee   /etc/modules-load.d/k8s.conf
          br_netfilter
          EOF'
@@ -36,9 +36,8 @@
            }
      - name: restart docker
        shell: |
-
-               systemctl daemon-reload
-               systemctl restart docker
+         systemctl daemon-reload
+         systemctl restart docker
 
 
 
