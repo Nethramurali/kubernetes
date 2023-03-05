@@ -1,6 +1,6 @@
 ---
  - name: joining the worker node to the master
-   hosts: worker
+   hosts: k8s_worker
    become: yes
    gather_facts: yes
 
