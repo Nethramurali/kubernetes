@@ -1,6 +1,6 @@
 ---
   - name: create kubernetes cluster master node setup
-    hosts: master,worker
+    hosts: k8s_cluster
     become: yes
     tasks:
 
