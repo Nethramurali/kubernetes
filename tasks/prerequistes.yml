@@ -1,5 +1,5 @@
 ---
- - hosts: "master,worker"
+ - hosts: "k8s_cluster"
    become: yes
    become_user: root
  
@@ -18,5 +18,4 @@
        #shell: |
        # systemctl stop firewalld
        # systemctl disable firewalld
- 
-     
+       
