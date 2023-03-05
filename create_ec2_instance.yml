@@ -17,17 +17,17 @@
     - name: start an instance master with a privateIP address
       amazon.aws.ec2_instance:
         name: "k8s-master"
-        key_name: "infra-systems-nonprod-key"
-        vpc_subnet_id: subnet-0a166fdea2d239f7d
+        key_name: "nethra_ssh_pub_key"
+        vpc_subnet_id: subnet-0f2b377546dcdc494
         instance_type: t3.micro
-        security_group: "sg-07087fd9a2a298f1e"
+        security_group: "sg-039334284f212efb6"
         count: 1
         network:
           assign_public_ip: false
-        image_id: ami-0557a15b87f6559cf
+        image_id: ami-0763cf792771fe1bd
         tags:
-          Environment: Testing
-          Name: k8s-master-test
+          Environment: Demo
+          Name: k8s-master
         volumes:
           - device_name: /dev/sda1
             ebs:
@@ -38,17 +38,17 @@
     - name: Create worker instances
       amazon.aws.ec2_instance:
         name: "k8s-worker"
-        key_name: "infra-systems-nonprod-key"
-        vpc_subnet_id: subnet-0a166fdea2d239f7d
+        key_name: "nethra_ssh_pub_key"
+        vpc_subnet_id: subnet-0f2b377546dcdc494
         instance_type: t3.micro
-        security_group: "sg-07087fd9a2a298f1e"
+        security_group: "sg-039334284f212efb6"
         count: 2
         network:
           assign_public_ip: false
-        image_id: ami-0557a15b87f6559cf
+        image_id: ami-0763cf792771fe1bd
         tags:
-          Environment: Testing
-          Name: k8s-worker-test
+          Environment: Demo
+          Name: k8s-worker
         volumes:
           - device_name: /dev/sda1
             ebs:
