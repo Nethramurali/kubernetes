@@ -23,7 +23,7 @@
         security_group: "sg-0ecb4f16d654dd0d5"
         count: 1
         network:
-          assign_public_ip: false
+          assign_public_ip: true
         image_id: ami-0763cf792771fe1bd
         tags:
           Environment: Demo
@@ -44,7 +44,7 @@
         security_group: "sg-0ecb4f16d654dd0d5"
         count: 2
         network:
-          assign_public_ip: false
+          assign_public_ip: true
         image_id: ami-0763cf792771fe1bd
         tags:
           Environment: Demo
