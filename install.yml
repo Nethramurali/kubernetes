@@ -2,6 +2,9 @@
     - name: Include Preparing Yml File To Prepare Machines
       import_playbook: tasks/prerequistes.yml
 
+    - name: Add kubernetes repo
+      import_playbook: tasks/kubernetes_repo.yml
+      
     - name: Include Preparing Yml File To Prepare Machines
       import_playbook: tasks/iptablesandcgroudriver.yml
 
