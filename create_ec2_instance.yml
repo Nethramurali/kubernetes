@@ -19,7 +19,7 @@
         name: "k8s-master"
         key_name: "nethra_ssh_pub_key"
         vpc_subnet_id: subnet-0f2b377546dcdc494
-        instance_type: t3.micro
+        instance_type: t3.small
         security_group: "sg-0ecb4f16d654dd0d5"
         count: 1
         network:
@@ -40,7 +40,7 @@
         name: "k8s-worker"
         key_name: "nethra_ssh_pub_key"
         vpc_subnet_id: subnet-0f2b377546dcdc494
-        instance_type: t3.micro
+        instance_type: t3.small
         security_group: "sg-0ecb4f16d654dd0d5"
         count: 2
         network:

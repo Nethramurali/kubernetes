@@ -6,7 +6,7 @@
  
 
     - name: initialize the cluster
-      command: kubeadm init --pod-network-cidr=192.168.0.0/16
+      command: kubeadm init --apiversion-advertise-address="{{groups['k8s_master'][0]}}" --pod-network-cidr=192.168.0.0/16
       ignore_errors: True
     
     - name: remove the container
