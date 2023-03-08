@@ -1,0 +1,12 @@
+---
+-  hosts: kubernetes
+   user: root
+
+   tasks:
+     - name: deploy the devapp on kubernetes
+       command: kubectl apply -f devapp-deployment.yml
+     - name: deploy service on kubernetes
+       command: kubectl apply -f devapp-service.yml
+     - name: update deployment with new pods if image updated in docker hub
+       command: kubectl rollout restart deployment devapp-deployment
+

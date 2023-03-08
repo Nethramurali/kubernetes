@@ -1,0 +1,14 @@
+---
+- hosts: ansible_host
+
+  tasks:
+    - name: create a docker image
+      command: docker build -t devapp:latest .
+      args:
+        chdir: /opt/docker
+    - name: create tag to the image to push it on to the dockerhub
+      command: docker tag devapp:latest  nethramurali/devapp:latest
+
+    - name: push the image to the dockerhub
+      command: docker push nethramurali/devapp:latest
+

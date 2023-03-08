@@ -1,0 +1,29 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: devapp-deployment
+  labels: 
+     app: devapp
+
+spec:
+  replicas: 2 
+  selector:
+    matchLabels:
+      app: devapp
+
+  template:
+    metadata:
+      labels:
+        app: devapp
+    spec:
+      containers:
+      - name: devapp
+        image: nethramurali/devapp
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
