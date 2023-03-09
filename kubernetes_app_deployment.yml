@@ -14,9 +14,11 @@
        dest: /tmp
 
     - name: deploy the devapp on kubernetes
-      command: kubectl apply -f devapp-deployment.yml
+      command: kubectl apply -f /tmp/devapp-deployment.yml
+      
     - name: deploy service on kubernetes
-      command: kubectl apply -f devapp-service.yml
+      command: kubectl apply -f /tmp/devapp-service.yml
+      
     - name: update deployment with new pods if image updated in docker hub
       command: kubectl rollout restart deployment devapp-deployment
 
