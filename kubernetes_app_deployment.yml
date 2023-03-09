@@ -1,5 +1,5 @@
 ---
-- hosts: k8 master 
+- hosts: k8_master 
   user: root 
   tasks:
   
