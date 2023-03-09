@@ -1,6 +1,7 @@
 ---
 - hosts: k8s_master 
-  user: root 
+  become: yes
+  become_method: sudo
   tasks:
   
     - name: copy the deployment file on to the K8 master 
