@@ -84,7 +84,7 @@ var x = setInterval(function() {
 </script>
   </div>
   <div class="bottomleft">
-    <p><h2>Thank you!</h2></p>
+    <p><h2>Thank you ALL!</h2></p>
   </div>
   <div class="bottomright">
     <p><h2>Presenter</h2></p>
