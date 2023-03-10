@@ -1,12 +1,25 @@
 ---
--  hosts: kubernetes
-   user: root
+- hosts: k8s_master 
+  become: yes
+  become_method: sudo
+  tasks:
+  
+    - name: copy the deployment file on to the K8 master 
+      copy:
+        src: /var/lib/jenkins/workspace/kubernetes_App_deployment/devapp-deployment.yml
+        dest: /tmp 
 
-   tasks:
-     - name: deploy the devapp on kubernetes
-       command: kubectl apply -f devapp-deployment.yml
-     - name: deploy service on kubernetes
-       command: kubectl apply -f devapp-service.yml
-     - name: update deployment with new pods if image updated in docker hub
-       command: kubectl rollout restart deployment devapp-deployment
+    - name: copy the service file on to the K8 master 
+      copy:
+       src: /var/lib/jenkins/workspace/kubernetes_App_deployment/devapp-service.yml
+       dest: /tmp
+
+    - name: deploy the devapp on kubernetes
+      command: kubectl apply -f /tmp/devapp-deployment.yml
+      
+    - name: deploy service on kubernetes
+      command: kubectl apply -f /tmp/devapp-service.yml
+      
+    - name: update deployment with new pods if image updated in docker hub
+      command: kubectl rollout restart deployment devapp-deployment
 
