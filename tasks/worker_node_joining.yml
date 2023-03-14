@@ -25,6 +25,10 @@
     - name: kubeadm reset
       shell: |
          kubeadm reset -f
+         
+    - name: echo 1
+      shell:
+        sysctl net.bridge.bridge-nf-call-iptables=1
 
 
     - name: Join the Worker nodes to the cluster.
