@@ -46,7 +46,7 @@ hr {
 
 <div class="bgimg">
   <div class="topleft">
-    <p><h1>LOGO</h1></p>
+    <p><h1>ADD LOGO</h1></p>
   </div>
   <div class="middle">
  <!--   <h1>COMING SOON</h1> -->
