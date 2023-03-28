@@ -16,6 +16,18 @@ spec:
       labels:
         app: devapp
     spec:
+      affinity:
+       podAntiAffinity:
+         requiredDuringSchedulingIgnoredDuringExecution:
+         - labelSelector:
+             matchExpressions:
+             - key: app
+               operator: In
+               values:
+               - devapp
+           topologyKey: "topology.kubernetes.io/hostname"
+   
+    
       containers:
       - name: devapp
         image: nethramurali/devapp
