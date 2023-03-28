@@ -25,7 +25,7 @@ spec:
                operator: In
                values:
                - devapp
-           topologyKey: "topology.kubernetes.io/hostname"
+           topologyKey: "kubernetes.io/hostname"
    
     
       containers:
