@@ -46,7 +46,7 @@ hr {
 
 <div class="bgimg">
   <div class="topleft">
-    <p><h1>Logo</h1></p>
+    <p><h1>LOGO</h1></p>
   </div>
   <div class="middle">
  <!--   <h1>COMING SOON</h1> -->
@@ -84,10 +84,10 @@ var x = setInterval(function() {
 </script>
   </div>
   <div class="bottomleft">
-    <p><h2>Thank you !!</h2></p>
+    <p><h2>Text</h2></p>
   </div>
   <div class="bottomright">
-    <p><h2>Nethra S</h2></p>
+    <p><h2>Presenter</h2></p>
   </div>
 </div>
 
