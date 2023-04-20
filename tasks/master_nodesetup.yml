@@ -59,8 +59,9 @@
       register: kubernetes_join_command
 
     - name: Copy join command to local file
-      become: yes
-      local_action: copy content="{{ kubernetes_join_command.stdout[0] }}" dest="kubernetes_join_command" mode=0777
+      copy: content="{{ kubernetes_join_command.stdout }}" dest="/tmp/kubernetes_join_command" mode=0777
+      become: false  
+      delegate_to: localhost   
          
 
 
